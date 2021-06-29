@@ -50,7 +50,7 @@ def arcface_process(path):
     img = img.float()
     return img
 
-def dilate_erosion_mask('/content/LOHO'+ mask_path, size):
+def dilate_erosion_mask('/content/LOHO'+mask_path, size):
     # Mask
     mask = Image.open('/content/LOHO'+mask_path).convert("RGB")
     mask = transforms.Resize((size, size))(mask)
