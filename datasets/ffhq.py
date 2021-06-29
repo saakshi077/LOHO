@@ -50,7 +50,7 @@ def arcface_process(path):
     img = img.float()
     return img
 
-
+mask_path = ' /content/LOHO' + mask_path
 def dilate_erosion_mask(mask_path, size):
     # Mask
     mask = Image.open(mask_path).convert("RGB")
@@ -71,7 +71,7 @@ def dilate_erosion_mask(mask_path, size):
 
     return torch.from_numpy(hair_mask_dilate), torch.from_numpy(hair_mask_erode)
 
-
+img_path =  '/content/LOHO' + img_path
 def process_image(img_path, mask_path, size=None, normalize=None):
     # Full image
     img = Image.open(img_path).convert("RGB")
@@ -91,7 +91,7 @@ def process_image(img_path, mask_path, size=None, normalize=None):
     else:
         mask = transforms.Resize((size, size))(mask)
     mask = transforms.ToTensor()(mask)
-
+    
     # Hair mask + Hair image
     hair_mask = mask[0, ...]
     hair_mask = torch.unsqueeze(hair_mask, axis=0)
