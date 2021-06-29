@@ -176,7 +176,7 @@ if __name__ == "__main__":
         hidden_layers=128,
         source_classes=7,
     )
-
+    print(graphonomy_model_path)    
     state_dict = torch.load(graphonomy_model_path)
     net.load_source_model(state_dict)
     net.cuda()
