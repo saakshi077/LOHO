@@ -70,7 +70,7 @@ def dilate_erosion_mask( mask_path, size):
 
     return torch.from_numpy(hair_mask_dilate), torch.from_numpy(hair_mask_erode)
 
-def process_image("/content/LOHO/"+img_path, '/content/LOHO/'+mask_path, size=None, normalize=None):
+def process_image(img_path, mask_path, size=None, normalize=None):
     # Full image
     img = Image.open("/content/LOHO/"+img_path).convert("RGB")
     if size is None:
