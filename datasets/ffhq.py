@@ -50,9 +50,9 @@ def arcface_process(path):
     img = img.float()
     return img
 
-def dilate_erosion_mask('/content/LOHO/'+mask_path, size):
+def dilate_erosion_mask("/content/LOHO/"+ mask_path, size):
     # Mask
-    mask = Image.open('/content/LOHO/'+mask_path).convert("RGB")
+    mask = Image.open("/content/LOHO/"+ mask_path).convert("RGB")
     mask = transforms.Resize((size, size))(mask)
     mask = transforms.ToTensor()(mask)  # [0, 1]
 
@@ -70,9 +70,9 @@ def dilate_erosion_mask('/content/LOHO/'+mask_path, size):
 
     return torch.from_numpy(hair_mask_dilate), torch.from_numpy(hair_mask_erode)
 
-def process_image('/content/LOHO/'+img_path, '/content/LOHO/'+mask_path, size=None, normalize=None):
+def process_image("/content/LOHO/"+img_path, '/content/LOHO/'+mask_path, size=None, normalize=None):
     # Full image
-    img = Image.open('/content/LOHO/'+img_path).convert("RGB")
+    img = Image.open("/content/LOHO/"+img_path).convert("RGB")
     if size is None:
         img = transforms.Resize((1024, 1024))(img)
     else:
@@ -83,7 +83,7 @@ def process_image('/content/LOHO/'+img_path, '/content/LOHO/'+mask_path, size=No
         img = transforms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])(img)
 
     # Mask
-    mask = Image.open('/content/LOHO/'+mask_path).convert("RGB")
+    mask = Image.open("/content/LOHO/"+mask_path).convert("RGB")
     if size is None:
         mask = transforms.Resize((1024, 1024))(mask)
     else:
