@@ -436,7 +436,7 @@ if __name__ == "__main__":
     ########### INPAINT BACKGROUND
 
     # Get softmask
-    with open(os.path.join(softmask, args.image1.split('.')[0] + '.pkl'), 'rb') as handle:
+    with open(os.path.join('/content/LOHO/'+ softmask, args.image1.split('.')[0] + '.pkl'), 'rb') as handle:
         softmask = pickle.load(handle)
 
     # Get inpainted background
