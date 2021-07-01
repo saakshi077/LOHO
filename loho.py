@@ -436,12 +436,12 @@ if __name__ == "__main__":
     ########### INPAINT BACKGROUND
 
     # Get softmask
-    with open(os.path.join('/content/LOHO/'+ softmask, args.image1.split('.')[0] + '.pkl'), 'rb') as handle:
+    with open(os.path.join( softmask, args.image1.split('.')[0] + '.pkl'), 'rb') as handle:
         softmask = pickle.load(handle)
 
     # Get inpainted background
-    background = cv2.imread(os.path.join("/content/LOHO" +background, args.image1))
-    background = cv2.resize("/content/LOHO/data/"+background, (512, 512))
+    background = cv2.imread(os.path.join(background, args.image1))
+    background = cv2.resize(background, (512, 512))
 
     img_gen = image_utils.makeImage(img_gen)[0] # in RGB
     img_gen = cv2.cvtColor(cv2.resize(img_gen, (512, 512)), cv2.COLOR_BGR2RGB)
